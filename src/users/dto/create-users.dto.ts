@@ -1,6 +1,5 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
-import { calledInOrder } from '@sinonjs/commons';
-const {} =require("calledInOrder")
+import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
+ 
 
 export class createUserDto{
 @IsNumber()
@@ -18,6 +17,10 @@ name:string;
 
 @IsNumber()
 age:number;
+
+
+@IsEmail()
+email:string
 
 
 }   
