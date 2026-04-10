@@ -9,14 +9,14 @@ isAthenticated :boolean =false
 
   login(email:string,password:string){
 
-     let user = this.userService.users.find(u=>u.email==email && u.password==password);
+  //    let user = this.userService.users.find(u=>u.email==email && u.password==password);
      
-     if(user){
-      this.isAthenticated =true
-      return "MY_Token"
-     }
-     else{
-      return "Failed to Login"
-     }
+  //    if(user){
+  //     this.isAthenticated =true
+  //     return "MY_Token"
+  //    }
+  //    else{
+  //     return "Failed to Login"
+  //    }
   }
 }

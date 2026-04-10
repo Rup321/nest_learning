@@ -1,9 +1,8 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
+import { IsEmail, isNotEmpty, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
  
 
 export class createUserDto{
-@IsNumber()
-id:number ;
+ 
 
 @IsString() 
 @IsOptional()
@@ -13,14 +12,26 @@ gender?:string;
 @IsString()
 @IsNotEmpty()
 @MinLength(3,{message:"length must be greter or greter than 3"})
-name:string;
+firstName:string;
 
-@IsNumber()
-age:number;
+
+@IsString()
+@IsNotEmpty()
+@MinLength(3,{message:"length must be greter or greter than 3"})
+lastName:string;
+// @IsNumber()
+// age:number;
 
 
 @IsEmail()
-email:string
+@IsNotEmpty()
+@MinLength(3,{message:"length must be greter or greter than 3"})
+email:string;
+
+@IsString()
+@IsNotEmpty()
+@MinLength(3,{message:"length must be greter or greter than 3"})
+password:string;
 
 
 }   
