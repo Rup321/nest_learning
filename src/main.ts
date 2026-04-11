@@ -10,7 +10,7 @@ async function bootstrap() {
   // transform true => so user becomes instnce of that dto 
 //  and global pipes is used that validatio need to use everywhere so we creted the global pipe for it 
 
-  app.useGlobalPipes(new ValidationPipe({whitelist:true,forbidNonWhitelisted:true,transform:true}))
+  app.useGlobalPipes(new ValidationPipe({whitelist:true ,transform:true}))
   await app.listen(process.env.PORT ?? 3000);
 
 }

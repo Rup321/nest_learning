@@ -1,25 +1,20 @@
-import { maxLength } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { maxLength, ValidateNested } from "class-validator";
+import { createProfileDto } from "src/profile/dto/create-profile.dto";
+import { Profile } from "src/profile/profile.entity";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { JoinColumn } from "typeorm";
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id:number;
 
-
-  @Column({
-    type:"varchar",
-    nullable:false
-  })
-  firstName:string;
-
-
-  @Column({
-   type:"varchar",
-    nullable:false
-  })
-lastName:string;
-
+ 
+@Column({
+  type:"varchar",
+  nullable:false
+})
+userName:string;
 
 @Column({
   type:"varchar",
@@ -33,12 +28,21 @@ email:string;
 })
 password:string;
 
-@Column({
-  type:"varchar",
-  nullable:true
-})
-gender?:string
+
+@OneToOne(()=>Profile)
+@JoinColumn()
+profile?:Profile;
+
  
+ @CreateDateColumn()
+createdAt:Date;
+
+@UpdateDateColumn()
+updatedAt:Date;
+
+
+@DeleteDateColumn()
+deletedAt:Date;
 
   
 

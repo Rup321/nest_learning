@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
 
 @Module({
-  imports:[forwardRef(()=>AuthModule),TypeOrmModule.forFeature([User])],
+  imports:[forwardRef(()=>AuthModule),TypeOrmModule.forFeature([User])], //typeorm module need to be write when we are creting new entity
   controllers:[UserController],
   providers:[UserService],
   exports:[UserService] //h ere exportthe service whicver u want to exports

@@ -1,27 +1,13 @@
-import { IsEmail, isNotEmpty, IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from 'class-validator';
+import { createProfileDto } from 'src/profile/dto/create-profile.dto';
+import { Profile } from './../../profile/profile.entity';
+import { IsEmail, isNotEmpty, IsNotEmpty, IsNumber, IsOptional, IsString, maxLength, minLength, MinLength } from 'class-validator';
  
 
 export class createUserDto{
- 
-
-@IsString() 
-@IsOptional()
-gender?:string;
-
-
 @IsString()
 @IsNotEmpty()
 @MinLength(3,{message:"length must be greter or greter than 3"})
-firstName:string;
-
-
-@IsString()
-@IsNotEmpty()
-@MinLength(3,{message:"length must be greter or greter than 3"})
-lastName:string;
-// @IsNumber()
-// age:number;
-
+userName:string;
 
 @IsEmail()
 @IsNotEmpty()
@@ -34,4 +20,6 @@ email:string;
 password:string;
 
 
+@IsOptional()
+ProfileId?:createProfileDto
 }   
